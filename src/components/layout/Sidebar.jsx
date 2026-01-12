@@ -27,6 +27,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Wrench, Map } from 'lucide-react'
+import { ClipboardList } from 'lucide-react'
 
 const navigationItems = [
     { id: 'home', path: '', icon: Home, labelKey: 'sidebar.home' },
@@ -34,6 +35,7 @@ const navigationItems = [
     { id: 'admin', path: 'admin', icon: Settings, labelKey: 'sidebar.admin' },
     { id: 'suggestions', path: 'suggestions', icon: Lightbulb, labelKey: 'sidebar.suggestions' },
     { id: 'improvements', path: 'improvements', icon: Wrench, labelKey: 'sidebar.improvements' },
+    { id: 'improvements-v2', path: 'improvements-v2', icon: ClipboardList, labelKey: 'sidebar.improvementsV2' },
     { id: 'roadmap', path: 'roadmap', icon: Map, labelKey: 'sidebar.roadmap' },
 ]
 

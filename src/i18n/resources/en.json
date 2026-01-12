@@ -22,6 +22,7 @@
         "admin": "Admin Panel",
         "suggestions": "Suggestions",
         "improvements": "Improvements",
+        "improvementsV2": "Improvements Current",
         "roadmap": "Roadmap"
     },
     "header": {

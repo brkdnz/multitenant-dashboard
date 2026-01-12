@@ -18,6 +18,7 @@ const WidgetGallery = lazy(() => import('@/pages/WidgetGallery'))
 const AdminPanel = lazy(() => import('@/pages/AdminPanel'))
 const Suggestions = lazy(() => import('@/pages/Suggestions'))
 const Improvements = lazy(() => import('@/pages/Improvements'))
+const ImprovementsV2 = lazy(() => import('@/pages/ImprovementsV2'))
 const Roadmap = lazy(() => import('@/pages/Roadmap'))
 const Phase6Test = lazy(() => import('@/pages/Phase6Test'))
 const Login = lazy(() => import('@/pages/Login'))
@@ -78,6 +79,11 @@ function App() {
                 <Route path="improvements" element={
                   <Suspense fallback={<PageLoader message="Loading Improvements..." />}>
                     <Improvements />
+                  </Suspense>
+                } />
+                <Route path="improvements-v2" element={
+                  <Suspense fallback={<PageLoader message="Loading..." />}>
+                    <ImprovementsV2 />
                   </Suspense>
                 } />
                 <Route path="roadmap" element={
