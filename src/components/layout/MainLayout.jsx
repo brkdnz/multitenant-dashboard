@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { useTenant, useTenantContext } from '@/tenancy/TenantContext'
 import { useStore } from '@/app/store'
@@ -16,6 +16,21 @@ export function MainLayout() {
     const tenant = useTenant()
     const { isLoading, error } = useTenantContext()
     const sidebarCollapsed = useStore((state) => state.sidebarCollapsed)
+    const [isMobile, setIsMobile] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+    // Check for mobile viewport
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 768)
+            if (window.innerWidth >= 768) {
+                setMobileMenuOpen(false)
+            }
+        }
+        checkMobile()
+        window.addEventListener('resize', checkMobile)
+        return () => window.removeEventListener('resize', checkMobile)
+    }, [])
 
     // Command Palette (Cmd+K)
     const { isOpen: commandPaletteOpen, close: closeCommandPalette } = useCommandPalette()
@@ -45,7 +60,7 @@ export function MainLayout() {
     // Error state
     if (error) {
         return (
-            <div className="flex h-screen w-full items-center justify-center bg-[hsl(var(--background))]">
+            <div className="flex h-screen w-full items-center justify-center bg-[hsl(var(--background))] p-4">
                 <div className="max-w-md rounded-[var(--radius)] border border-[hsl(var(--destructive))] bg-[hsl(var(--card))] p-6 text-center">
                     <h2 className="mb-2 text-lg font-semibold text-[hsl(var(--destructive))]">
                         Error Loading Dashboard
@@ -69,12 +84,12 @@ export function MainLayout() {
     const isCollapsed = sidebar.mode === 'collapsed' && !sidebarCollapsed
     const isIconOnly = sidebar.mode === 'icon-only' || sidebarCollapsed
 
-    // Calculate left margin based on sidebar state
-    const marginLeft = isCollapsed
+    // Calculate left margin based on sidebar state (only for desktop)
+    const marginLeft = isMobile ? 0 : (isCollapsed
         ? 0
         : isIconOnly
             ? 64
-            : sidebar.width || 280
+            : sidebar.width || 280)
 
     return (
         <div className="min-h-screen bg-[hsl(var(--background))]">
@@ -84,8 +99,20 @@ export function MainLayout() {
             {/* Onboarding Wizard */}
             <OnboardingWizard isOpen={onboardingOpen} onClose={closeOnboarding} onComplete={completeOnboarding} />
 
+            {/* Mobile Overlay */}
+            {isMobile && mobileMenuOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-30 md:hidden"
+                    onClick={() => setMobileMenuOpen(false)}
+                />
+            )}
+
             {/* Sidebar */}
-            <Sidebar />
+            <Sidebar
+                isMobile={isMobile}
+                mobileMenuOpen={mobileMenuOpen}
+                onMobileClose={() => setMobileMenuOpen(false)}
+            />
 
             {/* Main Content Area */}
             <div
@@ -97,13 +124,17 @@ export function MainLayout() {
                 )}
             >
                 {/* Header */}
-                <Header />
+                <Header
+                    isMobile={isMobile}
+                    onMenuClick={() => setMobileMenuOpen(true)}
+                />
 
                 {/* Page Content */}
-                <main className="flex-1 p-6">
+                <main className="flex-1 p-4 md:p-6">
                     <Outlet />
                 </main>
             </div>
         </div>
     )
 }
+

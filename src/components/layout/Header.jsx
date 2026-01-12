@@ -20,12 +20,11 @@ import {
     SelectValue,
 } from '@/components/ui/select'
 
-export function Header() {
+export function Header({ isMobile = false, onMenuClick }) {
     const { t, i18n } = useTranslation()
     const tenant = useTenant()
     const { updateConfig } = useTenantContext()
     const applyTheme = useStore((state) => state.applyTheme)
-    const toggleSidebar = useStore((state) => state.toggleSidebar)
 
     if (!tenant) return null
 
@@ -71,21 +70,24 @@ export function Header() {
     }
 
     return (
-        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--background))/95] px-4 sm:px-6 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))/60]">
+        <header className="sticky top-0 z-30 flex h-14 md:h-16 items-center justify-between border-b border-[hsl(var(--border))] bg-[hsl(var(--background))/95] px-3 sm:px-4 md:px-6 backdrop-blur supports-[backdrop-filter]:bg-[hsl(var(--background))/60]">
             {/* Left side - Mobile menu + Title */}
-            <div className="flex items-center gap-3">
-                <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={toggleSidebar}
-                    className="lg:hidden"
-                    aria-label="Toggle menu"
-                >
-                    <Menu className="h-5 w-5" />
-                </Button>
+            <div className="flex items-center gap-2 md:gap-3">
+                {/* Mobile menu button */}
+                {isMobile && (
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={onMenuClick}
+                        className="h-9 w-9"
+                        aria-label="Open menu"
+                    >
+                        <Menu className="h-5 w-5" />
+                    </Button>
+                )}
 
                 <div className="hidden sm:block">
-                    <h1 className="text-lg font-semibold text-[hsl(var(--foreground))]">
+                    <h1 className="text-base md:text-lg font-semibold text-[hsl(var(--foreground))] truncate max-w-[200px]">
                         {branding.appName}
                     </h1>
                 </div>
