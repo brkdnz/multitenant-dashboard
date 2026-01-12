@@ -139,7 +139,7 @@ const improvements = {
             { id: 'doc-2', text: 'API documentation (JSDoc → TypeDoc)', priority: 'medium', effort: 'medium', done: false },
             { id: 'doc-3', text: 'CONTRIBUTING.md', priority: 'medium', effort: 'low', done: true },
             { id: 'doc-4', text: 'Architecture decision records (ADR)', priority: 'low', effort: 'medium', done: true },
-            { id: 'doc-5', text: 'Video tutorial serisi', priority: 'low', effort: 'high', done: false },
+            { id: 'doc-5', text: 'İnteraktif demo sayfası (video alternatifi)', priority: 'low', effort: 'high', done: true },
         ]
     },
 }

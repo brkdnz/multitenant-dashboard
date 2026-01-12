@@ -21,6 +21,7 @@ const Improvements = lazy(() => import('@/pages/Improvements'))
 const ImprovementsV2 = lazy(() => import('@/pages/ImprovementsV2'))
 const Roadmap = lazy(() => import('@/pages/Roadmap'))
 const Phase6Test = lazy(() => import('@/pages/Phase6Test'))
+const InteractiveDemo = lazy(() => import('@/pages/InteractiveDemo'))
 const Login = lazy(() => import('@/pages/Login'))
 
 // Log environment info on startup
@@ -94,6 +95,11 @@ function App() {
                 <Route path="phase6-test" element={
                   <Suspense fallback={<PageLoader message="Loading Test..." />}>
                     <Phase6Test />
+                  </Suspense>
+                } />
+                <Route path="demo" element={
+                  <Suspense fallback={<PageLoader message="Loading Demo..." />}>
+                    <InteractiveDemo />
                   </Suspense>
                 } />
               </Route>
