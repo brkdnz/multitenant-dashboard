@@ -127,7 +127,7 @@ const improvements = {
             { id: 'devops-3', text: 'Environment-specific configs', priority: 'medium', effort: 'low', done: true },
             { id: 'devops-4', text: 'Docker containerization', priority: 'low', effort: 'medium', done: false },
             { id: 'devops-5', text: 'Staging environment setup', priority: 'medium', effort: 'medium', done: false },
-            { id: 'devops-6', text: 'Semantic versioning + CHANGELOG', priority: 'low', effort: 'low', done: false },
+            { id: 'devops-6', text: 'Semantic versioning + CHANGELOG', priority: 'low', effort: 'low', done: true },
         ]
     },
     documentation: {
@@ -135,10 +135,10 @@ const improvements = {
         icon: FileCode,
         color: 'cyan',
         items: [
-            { id: 'doc-1', text: 'Widget oluşturma rehberi', priority: 'high', effort: 'medium', done: false },
+            { id: 'doc-1', text: 'Widget oluşturma rehberi', priority: 'high', effort: 'medium', done: true },
             { id: 'doc-2', text: 'API documentation (JSDoc → TypeDoc)', priority: 'medium', effort: 'medium', done: false },
-            { id: 'doc-3', text: 'CONTRIBUTING.md', priority: 'medium', effort: 'low', done: false },
-            { id: 'doc-4', text: 'Architecture decision records (ADR)', priority: 'low', effort: 'medium', done: false },
+            { id: 'doc-3', text: 'CONTRIBUTING.md', priority: 'medium', effort: 'low', done: true },
+            { id: 'doc-4', text: 'Architecture decision records (ADR)', priority: 'low', effort: 'medium', done: true },
             { id: 'doc-5', text: 'Video tutorial serisi', priority: 'low', effort: 'high', done: false },
         ]
     },
