@@ -1,0 +1,617 @@
+@import "tailwindcss";
+
+/* ===== CSS VARIABLES FOR THEMING ===== */
+:root {
+    /* Background & Foreground */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    /* Card */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    /* Popover */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Primary */
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    /* Muted */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    /* Accent */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border & Input & Ring */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    /* Radius */
+    --radius: 0.5rem;
+
+    /* Sidebar */
+    --sidebar-width: 280px;
+    --sidebar-width-collapsed: 64px;
+    --sidebar-width-icon: 64px;
+}
+
+.dark {
+    /* Background & Foreground */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    /* Card */
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    /* Popover */
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary */
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    /* Secondary */
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted */
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Accent */
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Destructive */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border & Input & Ring */
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+}
+
+/* ===== BASE STYLES ===== */
+@layer base {
+    * {
+        @apply border-[hsl(var(--border))];
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-[hsl(var(--background))] text-[hsl(var(--foreground))];
+        font-feature-settings: "rlig" 1, "calt" 1;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* ===== SCROLLBAR STYLES ===== */
+@layer utilities {
+    .scrollbar-thin {
+        scrollbar-width: thin;
+        scrollbar-color: hsl(var(--muted)) transparent;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background-color: hsl(var(--muted-foreground) / 0.3);
+        border-radius: 3px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background-color: hsl(var(--muted-foreground) / 0.5);
+    }
+
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ===== CURSOR STYLES ===== */
+.cursor-grab {
+    cursor: grab !important;
+}
+
+.cursor-grabbing {
+    cursor: grabbing !important;
+}
+
+.cursor-grabbing * {
+    cursor: grabbing !important;
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== FOCUS STYLES ===== */
+:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ===== DRAG AND DROP STYLES ===== */
+[data-dragging="true"] {
+    cursor: grabbing !important;
+}
+
+[data-slot="sortable"][data-dragging="true"] {
+    cursor: grabbing !important;
+}
+
+[data-slot="sortable"][data-dragging="true"] * {
+    cursor: grabbing !important;
+}
+
+[data-slot="sortable-item"][data-dragging="true"] {
+    opacity: 0.5;
+    position: relative;
+    z-index: 50;
+}
+
+[data-slot="sortable-item-handle"] {
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+[data-slot="sortable-item-handle"][data-dragging="true"] {
+    cursor: grabbing !important;
+}
+
+[data-slot="sortable-item-handle"][data-disabled="true"] {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
+[data-slot="sortable-overlay"] {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform-origin: center center;
+}
+
+/* Legacy drag classes */
+.dragging {
+    opacity: 0.5;
+    cursor: grabbing !important;
+}
+
+.drag-handle {
+    cursor: grab;
+    touch-action: none;
+}
+
+.drag-handle:active {
+    cursor: grabbing !important;
+}
+
+.drop-target {
+    outline: 2px dashed hsl(var(--primary));
+    outline-offset: 2px;
+}
+
+/* ===== SIDEBAR STYLES ===== */
+.sidebar-transition {
+    transition: width 200ms ease-out, transform 200ms ease-out;
+}
+
+/* Better sidebar gradients */
+[data-slot="sidebar"] {
+    background: linear-gradient(180deg,
+            hsl(var(--card)) 0%,
+            hsl(var(--background)) 100%);
+}
+
+/* ===== CARD ENHANCEMENTS ===== */
+.card-hover {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card-hover:hover {
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== WIDGET STYLES ===== */
+[data-slot="widget-shell"] {
+    transition: transform 200ms ease, box-shadow 200ms ease, opacity 200ms ease;
+}
+
+[data-slot="widget-shell"]:hover {
+    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.1);
+}
+
+.dark [data-slot="widget-shell"]:hover {
+    box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+[data-slot="widget-shell"][data-dragging="true"] {
+    opacity: 0.5;
+    transform: scale(1.02);
+    z-index: 50;
+}
+
+/* Widget drag handle visibility */
+[data-slot="widget-handle"] {
+    opacity: 0;
+    transition: opacity 200ms ease, transform 200ms ease;
+    transform: translateY(4px);
+}
+
+[data-slot="widget-shell"]:hover [data-slot="widget-handle"],
+[data-slot="widget-shell"][data-dragging="true"] [data-slot="widget-handle"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== ANIMATION UTILITIES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 200ms ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 300ms ease-out;
+}
+
+.animate-slide-in-left {
+    animation: slideInLeft 200ms ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slideInRight 200ms ease-out;
+}
+
+.animate-pulse-slow {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* ===== BUTTON ENHANCEMENTS ===== */
+button,
+[role="button"] {
+    cursor: pointer;
+}
+
+button:disabled,
+[role="button"]:disabled,
+button[aria-disabled="true"],
+[role="button"][aria-disabled="true"] {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
+/* ===== SELECT / DROPDOWN ENHANCEMENTS ===== */
+[data-radix-popper-content-wrapper] {
+    z-index: 100 !important;
+}
+
+/* ===== GLASSMORPHISM UTILITIES ===== */
+.glass {
+    background: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.glass-strong {
+    background: hsl(var(--card) / 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* ===== GRADIENT UTILITIES ===== */
+.gradient-primary {
+    background: linear-gradient(135deg,
+            hsl(var(--primary)) 0%,
+            hsl(var(--primary) / 0.8) 100%);
+}
+
+.gradient-accent {
+    background: linear-gradient(135deg,
+            hsl(var(--accent)) 0%,
+            hsl(var(--secondary)) 100%);
+}
+
+/* ===== SKELETON LOADING ===== */
+.skeleton {
+    background: linear-gradient(90deg,
+            hsl(var(--muted)) 25%,
+            hsl(var(--muted-foreground) / 0.1) 50%,
+            hsl(var(--muted)) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ===== GRID IMPROVEMENTS ===== */
+.widget-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.widget-grid>* {
+    min-height: 120px;
+}
+
+/* ===== SMOOTH SCROLLING FOR CONTAINERS ===== */
+.smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ===== MOBILE RESPONSIVE UTILITIES ===== */
+@media (max-width: 768px) {
+
+    /* Adjust widget grid for mobile */
+    .widget-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    /* Full-width buttons on mobile */
+    .btn-mobile-full {
+        width: 100%;
+    }
+
+    /* Hide on mobile */
+    .hide-mobile {
+        display: none !important;
+    }
+
+    /* Stack flex items vertically on mobile */
+    .flex-mobile-col {
+        flex-direction: column;
+    }
+
+    /* Reduce padding on mobile */
+    .p-mobile-sm {
+        padding: 0.75rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+
+    /* Extra small screens */
+    .widget-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.5rem;
+    }
+
+    .widget-grid>* {
+        min-height: 100px;
+    }
+}
+
+/* Show only on mobile */
+@media (min-width: 769px) {
+    .show-mobile-only {
+        display: none !important;
+    }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 0.5rem 1rem;
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 0 0 var(--radius) 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border: 0 0% 20%;
+    }
+
+    .dark {
+        --border: 0 0% 80%;
+    }
+}
+
+/* Touch-friendly tap targets */
+@media (pointer: coarse) {
+
+    button,
+    [role="button"],
+    input,
+    select,
+    textarea,
+    a {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    /* Larger click areas for interactive elements */
+    .touch-target {
+        position: relative;
+    }
+
+    .touch-target::before {
+        content: '';
+        position: absolute;
+        inset: -8px;
+    }
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Not screen reader only - reverses sr-only */
+.not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Focus indicator for keyboard navigation */
+.focus-ring {
+    outline: none;
+}
+
+.focus-ring:focus-visible {
+    box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
+/* ===== SAFE AREA INSETS (for notched devices) ===== */
+@supports (padding: max(0px)) {
+    .safe-area-inset-bottom {
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+
+    .safe-area-inset-top {
+        padding-top: max(1rem, env(safe-area-inset-top));
+    }
+}

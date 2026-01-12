@@ -1,0 +1,112 @@
+{
+    "common": {
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "add": "Add",
+        "search": "Search",
+        "filter": "Filter",
+        "reset": "Reset",
+        "loading": "Loading...",
+        "error": "Error",
+        "success": "Success",
+        "confirm": "Confirm",
+        "close": "Close",
+        "preview": "Preview",
+        "apply": "Apply"
+    },
+    "sidebar": {
+        "home": "Home",
+        "widgets": "Widget Gallery",
+        "admin": "Admin Panel",
+        "suggestions": "Suggestions",
+        "improvements": "Improvements",
+        "roadmap": "Roadmap"
+    },
+    "header": {
+        "theme": "Theme",
+        "language": "Language",
+        "profile": "Profile",
+        "logout": "Logout",
+        "settings": "Settings"
+    },
+    "admin": {
+        "title": "Admin Panel",
+        "theme": {
+            "title": "Theme Settings",
+            "mode": "Mode",
+            "light": "Light",
+            "dark": "Dark",
+            "colors": "Colors",
+            "primary": "Primary",
+            "secondary": "Secondary",
+            "accent": "Accent",
+            "background": "Background",
+            "foreground": "Foreground",
+            "radius": "Border Radius",
+            "none": "None",
+            "small": "Small",
+            "medium": "Medium",
+            "large": "Large",
+            "full": "Full"
+        },
+        "language": {
+            "title": "Language Settings",
+            "enabled": "Multi-language Enabled",
+            "default": "Default Language",
+            "turkish": "Turkish",
+            "english": "English",
+            "overrides": "Custom Translations",
+            "key": "Key",
+            "value": "Value",
+            "addOverride": "Add Translation",
+            "resetDefaults": "Reset to Defaults"
+        },
+        "sidebar": {
+            "title": "Sidebar Settings",
+            "mode": "Display Mode",
+            "iconOnly": "Icon Only",
+            "iconText": "Icon + Text",
+            "collapsed": "Collapsed",
+            "position": "Position",
+            "left": "Left",
+            "right": "Right",
+            "logo": "Logo URL",
+            "appName": "App Name"
+        },
+        "drag": {
+            "title": "Drag & Drop Settings",
+            "global": "Global Drag",
+            "globalEnabled": "Enable drag across all pages",
+            "pageOverrides": "Page Overrides",
+            "widgetOverrides": "Widget Overrides",
+            "enabled": "Enabled",
+            "disabled": "Disabled"
+        }
+    },
+    "widgets": {
+        "title": "Widget Gallery",
+        "dragToAdd": "Drag to add to page",
+        "statCard": {
+            "title": "Stat Card",
+            "description": "Displays a single metric value"
+        },
+        "simpleTable": {
+            "title": "Simple Table",
+            "description": "Displays data in table format"
+        },
+        "miniChart": {
+            "title": "Mini Chart",
+            "description": "Small chart visualization"
+        }
+    },
+    "home": {
+        "title": "Dashboard",
+        "welcome": "Welcome"
+    },
+    "suggestions": {
+        "title": "Feature Suggestions",
+        "description": "Additional features to enhance the dashboard builder"
+    }
+}

@@ -1,0 +1,112 @@
+{
+    "common": {
+        "save": "Kaydet",
+        "cancel": "İptal",
+        "delete": "Sil",
+        "edit": "Düzenle",
+        "add": "Ekle",
+        "search": "Ara",
+        "filter": "Filtrele",
+        "reset": "Sıfırla",
+        "loading": "Yükleniyor...",
+        "error": "Hata",
+        "success": "Başarılı",
+        "confirm": "Onayla",
+        "close": "Kapat",
+        "preview": "Önizleme",
+        "apply": "Uygula"
+    },
+    "sidebar": {
+        "home": "Anasayfa",
+        "widgets": "Widget Galerisi",
+        "admin": "Yönetim Paneli",
+        "suggestions": "Öneriler",
+        "improvements": "Iyileştirmeler",
+        "roadmap": "Roadmap"
+    },
+    "header": {
+        "theme": "Tema",
+        "language": "Dil",
+        "profile": "Profil",
+        "logout": "Çıkış Yap",
+        "settings": "Ayarlar"
+    },
+    "admin": {
+        "title": "Yönetim Paneli",
+        "theme": {
+            "title": "Tema Ayarları",
+            "mode": "Mod",
+            "light": "Açık",
+            "dark": "Koyu",
+            "colors": "Renkler",
+            "primary": "Birincil",
+            "secondary": "İkincil",
+            "accent": "Vurgu",
+            "background": "Arkaplan",
+            "foreground": "Ön plan",
+            "radius": "Köşe Yuvarlaklığı",
+            "none": "Yok",
+            "small": "Küçük",
+            "medium": "Orta",
+            "large": "Büyük",
+            "full": "Tam"
+        },
+        "language": {
+            "title": "Dil Ayarları",
+            "enabled": "Çoklu Dil Aktif",
+            "default": "Varsayılan Dil",
+            "turkish": "Türkçe",
+            "english": "İngilizce",
+            "overrides": "Özel Çeviriler",
+            "key": "Anahtar",
+            "value": "Değer",
+            "addOverride": "Çeviri Ekle",
+            "resetDefaults": "Varsayılana Dön"
+        },
+        "sidebar": {
+            "title": "Kenar Çubuğu Ayarları",
+            "mode": "Görünüm Modu",
+            "iconOnly": "Sadece İkon",
+            "iconText": "İkon + Metin",
+            "collapsed": "Gizli",
+            "position": "Konum",
+            "left": "Sol",
+            "right": "Sağ",
+            "logo": "Logo URL",
+            "appName": "Uygulama Adı"
+        },
+        "drag": {
+            "title": "Sürükle-Bırak Ayarları",
+            "global": "Genel Sürükleme",
+            "globalEnabled": "Tüm uygulamada sürükleme aktif",
+            "pageOverrides": "Sayfa Bazlı Ayarlar",
+            "widgetOverrides": "Widget Bazlı Ayarlar",
+            "enabled": "Aktif",
+            "disabled": "Pasif"
+        }
+    },
+    "widgets": {
+        "title": "Widget Galerisi",
+        "dragToAdd": "Sayfaya eklemek için sürükleyin",
+        "statCard": {
+            "title": "İstatistik Kartı",
+            "description": "Tek bir metrik değer gösterir"
+        },
+        "simpleTable": {
+            "title": "Basit Tablo",
+            "description": "Tablo formatında veri gösterir"
+        },
+        "miniChart": {
+            "title": "Mini Grafik",
+            "description": "Küçük grafik gösterimi"
+        }
+    },
+    "home": {
+        "title": "Dashboard",
+        "welcome": "Hoş Geldiniz"
+    },
+    "suggestions": {
+        "title": "Önerilen Özellikler",
+        "description": "Dashboard builder'ı geliştirecek ek özellik önerileri"
+    }
+}
