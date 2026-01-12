@@ -9,17 +9,17 @@ export const tenantAConfig = {
     theme: {
         mode: 'light',
         colors: {
-            primary: '220 90% 56%',
-            secondary: '220 14% 96%',
-            accent: '220 90% 56%',
-            background: '220 14% 98%',
-            foreground: '220 14% 10%',
-            muted: '220 14% 96%',
-            mutedForeground: '220 10% 46%',
-            border: '220 14% 90%',
-            destructive: '0 84% 60%',
+            primary: '240 5.9% 10%',
+            secondary: '240 4.8% 95.9%',
+            accent: '240 4.8% 95.9%',
+            background: '0 0% 100%',
+            foreground: '240 10% 3.9%',
+            muted: '240 4.8% 95.9%',
+            mutedForeground: '240 3.8% 46.1%',
+            border: '240 5.9% 90%',
+            destructive: '0 84.2% 60.2%',
         },
-        radius: 'lg',
+        radius: 'md',
     },
 
     branding: {
